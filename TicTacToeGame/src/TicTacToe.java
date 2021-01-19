@@ -10,9 +10,10 @@ public class TicTacToe {
 	    boolean rematch = true;    
 	    
 	    while(rematch){
+	    	
 	    	Scanner in = new Scanner(System.in); 
 	    	
-	      int currentPlayer = -1;
+	    	int currentPlayer = -1;
 	        boolean gameStatus = true;
 	        String message = "";
 
@@ -72,15 +73,16 @@ public class TicTacToe {
 	}
 	
     static void startingInstructions(){
-    StringBuilder sb = new StringBuilder();
-    sb.append("Welcome! Tic Tac Toe game starting!" + "\n")
-    .append("First player marker is X!" + "\n")
-    .append("Second player marker is O!" + "\n")
-    .append("Welcome! Tic Tac Toe game starting!" + "\n")
-    .append("The first player to have three pieces in a row (up, down, across, or diagonally) wins the game!" + "\n")
-    .append("When all 9 squares are full with no winner the game ends in a draw!" + "\n");
+    	StringBuilder sb = new StringBuilder();
+    	sb
+    		.append("Welcome! Tic Tac Toe game starting!" + "\n")
+    		.append("First player marker is X!" + "\n")
+    		.append("Second player marker is O!" + "\n")
+    		.append("Welcome! Tic Tac Toe game starting!" + "\n")
+    		.append("The first player to have three pieces in a row (up, down, across, or diagonally) wins the game!" + "\n")
+    		.append("When all 9 squares are full with no winner the game ends in a draw!" + "\n");
     
-    System.out.println(sb.toString());
+    	System.out.println(sb.toString());
     }
     
     static void drawBoard(char[] board){
@@ -94,6 +96,7 @@ public class TicTacToe {
     }
     
     static int getPlayer(int player){
+    	
         if (player == 1){
             return 2;
         } 
@@ -101,6 +104,7 @@ public class TicTacToe {
     }
     
     static boolean validateInput(String input){
+    	
         if (input == null || input.isEmpty()) {
             return false;
         }
@@ -116,6 +120,7 @@ public class TicTacToe {
     }
     
     static boolean isNumeric(String str) { 
+    	
         try {  
             Integer.parseInt(str);  
             return true;
@@ -125,6 +130,7 @@ public class TicTacToe {
     }  
     
     static boolean isValidZone(int n, char[] board){
+    	
         if(n < 1 || n > 9){
             return false;
         }
@@ -137,6 +143,7 @@ public class TicTacToe {
     }
     
     static boolean isGameDraw(char[] board){
+    	
         boolean isDraw = false;
         
         for (char zone : board) {
@@ -158,6 +165,7 @@ public class TicTacToe {
     }
 
     static boolean isWinner(char[] board){
+    	
         if (areEqual(board, 0, 1 ,2)) {
             return true;
         }
@@ -186,6 +194,7 @@ public class TicTacToe {
     }
     
     static char playerSign(int playerNumber){
+    	
         char player = ' ';
         
         if (playerNumber == 1){
@@ -202,8 +211,7 @@ public class TicTacToe {
         
         char player = playerSign(playerNumber);
         
-        System.out.printf("Player %s's move! Select zone from 1 to 9.", player);
-        
+        System.out.printf("Player %s's move! Select zone from 1 to 9.", player); 
 		String input = in.nextLine();
 		
 		while(!validateInput(input)){
